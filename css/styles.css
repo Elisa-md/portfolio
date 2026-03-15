@@ -1,0 +1,404 @@
+/* 1. VARIABLES CSS */
+:root {
+    --blanco: #ffffff;
+    --negro: #1a1a1a;
+    --gris-claro: #f4f4f4;
+    --verde-acento: #27d400;
+    --verde-oscuro: #1d9d00;
+    --verde-suave: #e8ffd9;
+    --fuente-principal: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* 2. MODO OSCURO AUTOMÁTICO */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --blanco: #121212;
+        --negro: #e0e0e0;
+        --gris-claro: #1e1e1e;
+        --verde-suave: #1a3a0a;
+    }
+    .tag-habilidad {
+        background-color: var(--verde-oscuro);
+        color: #ffffff !important;
+        border-color: var(--verde-acento);
+    }
+    .texto-contacto {
+        color: var(--blanco);
+    }
+    .texto-contacto strong {
+        color: var(--verde-acento); /* En modo oscuro, usamos el verde más brillante */
+    }
+}
+
+/* 3. RESET Y ACCESIBILIDAD */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+html { 
+    scroll-behavior: smooth; 
+}
+body { 
+    font-family: var(--fuente-principal); 
+    background: var(--blanco); 
+    color: var(--negro); 
+    line-height: 1.6; 
+}
+
+/* Resalte para navegación por teclado */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid var(--verde-acento);
+    outline-offset: 3px;
+}
+/* 4. LAYOUT */
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 20px 10%; 
+    border-bottom: 1px solid var(--gris-claro); 
+    position: sticky; 
+    top: 0; 
+    background: var(--blanco); 
+    z-index: 100; 
+}
+.nav-links { 
+    display: flex; 
+    list-style: none; gap: 20px; 
+}
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--negro); 
+    transition: 0.3s; 
+}
+.nav-links a:hover { 
+    color: var(--verde-acento); 
+}
+
+.hero { 
+    height: 80vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; }
+.verde { 
+    color: var(--verde-acento); 
+}
+
+.seccion { 
+    padding: 80px 10%; 
+}
+.fondo-gris { 
+    background: var(--gris-claro); 
+}
+.titulo { 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+
+/* --- ESTILO DE TAGS GENERALES (Sección Habilidades) --- */
+/* Contenedor de las habilidades */
+.contenedor-tags {
+    display: flex;
+    flex-wrap: wrap;       /* Permite que salten de línea */
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* La etiqueta individual */
+.tag-habilidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* Fondo verde y texto blanco SIEMPRE (Modo Claro) */
+    background-color: var(--verde-oscuro); 
+    color: #ffffff !important; /* Forzamos blanco para que destaque sobre el verde */
+    
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    width: max-content;
+    transition: all 0.3s ease;
+}
+
+
+/* Tamaño del logo */
+.tag-habilidad i {
+    font-size: 1.5rem;
+    filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.2)); /* Un poco de sombra para que el logo resalte */
+}
+
+.tag-habilidad:hover {
+    background-color: var(--verde-acento);
+    color: var(--blanco);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(39, 212, 0, 0.4);
+}
+
+/* --- ESTILO DE TAGS EN PROYECTOS (Mini tags) --- */
+.tags-proyecto {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.tag-mini {
+    font-size: 11px;
+    text-transform: uppercase;
+    background-color: var(--verde-suave); /* Fondo verde clarito */
+    color: var(--verde-oscuro);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* 5. PROYECTOS */
+.galeria-flex { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 25px; 
+}
+.tarjeta { 
+    background: var(--blanco); 
+    width: 320px; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    border: 1px solid var(--gris-claro); 
+    transition: 0.3s; 
+}
+.tarjeta:hover { 
+    transform: translateY(-10px); 
+}
+.tarjeta-img-contenedor { 
+    height: 180px; 
+    overflow: hidden; 
+}
+.tarjeta-img-contenedor img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: 0.5s; 
+}
+.tarjeta:hover img { 
+    transform: scale(1.1); 
+}
+.tarjeta-contenido { 
+    padding: 20px; 
+}
+
+/* 6. FORMULARIO Y MENSAJE */
+.formulario { 
+    max-width: 500px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+.formulario input, .formulario textarea { 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    background: var(--blanco); 
+    color: var(--negro); 
+}
+.formulario label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.texto-contacto {
+    text-align: center;
+    max-width: 600px; /* Evita que las líneas sean demasiado largas, lo que facilita la lectura */
+    margin: 0 auto 30px auto; /* Centra el bloque y da espacio respecto al formulario */
+    font-size: 1.1rem;
+    color: var(--negro);
+    line-height: 1.8; /* Aumentamos el interlineado para mejorar la legibilidad (Accesibilidad) */
+}
+
+.texto-contacto strong {
+    color: var(--verde-oscuro); /* Resaltamos el café virtual con tu color de identidad */
+    border-bottom: 2px low-color var(--verde-suave); /* Un subrayado sutil */
+}
+
+#btnEnviar {
+    height: 2rem;
+}
+.mensaje-oculto { 
+    display: none; 
+    padding: 10px; 
+    border-radius: 6px; 
+    text-align: center; 
+    margin-top: 10px; 
+}
+.mensaje-visible { 
+    display: block; 
+    background: var(--verde-suave); 
+    color: var(--verde-acento); 
+    border: 1px solid var(--verde-acento); 
+    animation: fadeIn 0.5s; 
+}
+
+/* Foco de teclado ultra-visible */
+:focus-visible {
+    outline: 4px solid #ffbf47; /* Color naranja/amarillo de alto contraste */
+    outline-offset: 4px;
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; } to { opacity: 1; } 
+}
+
+.footer {
+    background-color: var(--gris-claro); /* O var(--blanco) si prefieres que siga limpio */
+    padding: 50px 10% 30px;
+    border-top: 2px solid var(--verde-suave);
+    text-align: center;
+}
+
+.contenedor-footer {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* El estilo de tu superpoder */
+.superpoder {
+    font-size: 1.2rem;
+    color: var(--negro);
+    line-height: 1.4;
+}
+
+.superpoder strong {
+    color: var(--verde-oscuro);
+    display: block; /* Hace que la frase importante destaque en su propia línea */
+    margin-top: 5px;
+}
+
+/* Estilo de las redes sociales */
+.footer-redes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.footer-redes a {
+    text-decoration: none;
+    color: var(--negro);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.footer-redes a i {
+    font-size: 1.4rem;
+}
+
+/* Efecto hover accesible */
+.footer-redes a:hover, .footer-redes a:focus {
+    background-color: var(--verde-suave);
+    color: var(--verde-oscuro);
+    transform: translateY(-3px);
+}
+
+/* Copyright final */
+.footer-copy {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+/* --- RESPONSIVE PARA MÓVILES --- */
+@media (max-width: 480px) {
+    /* 1. Ajustamos el menú: los enlaces se ven mejor con más espacio */
+    .navbar {
+        flex-direction: column; /* Logo arriba, enlaces abajo */
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    /* 2. Reducimos el tamaño de los títulos para que no ocupen toda la pantalla */
+    .hero h1 {
+        font-size: 1.8rem;
+        padding: 0 10px;
+    }
+
+    .titulo-seccion {
+        font-size: 1.5rem;
+    }
+
+    /* 3. Las secciones necesitan menos relleno lateral en móvil */
+    .seccion {
+        padding: 40px 20px;
+    }
+
+    /* 4. Las tarjetas de proyectos ahora ocuparán el 100% del ancho disponible */
+    .tarjeta {
+        width: 100%; /* Una tarjeta por fila, bien ancha y legible */
+        max-width: none;
+    }
+
+    /* 5. Ajustamos las habilidades para que no se vean apretadas */
+    .contenedor-habilidades {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .habilidad-card {
+        width: 100%;
+    }
+
+    /* 6. El formulario ocupa todo el ancho */
+    .formulario {
+        width: 100%;
+    }
+
+    /* Tags */
+    .tag-habilidad {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    .contenedor-tags {
+        display: flex;
+        flex-direction: row; /* Mantenemos fila */
+        justify-content: center; /* Centramos las píldoras */
+        gap: 10px;
+    }
+
+    .tag-habilidad {
+        padding: 8px 15px;
+        font-size: 14px;
+        /* Eliminamos el width: 100% si lo tenías antes */
+    }
+
+    .footer-redes {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
