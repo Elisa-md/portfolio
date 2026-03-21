@@ -2,7 +2,8 @@
 :root {
     --blanco: #ffffff;
     --negro: #1a1a1a;
-    --gris-claro: #f4f4f4;
+    --gris-claro: #d5d5d5;
+    --gris-oscuro: #525252;
     --verde-acento: #27d400;
     --verde-oscuro: #1d9d00;
     --verde-suave: #e8ffd9;
@@ -15,6 +16,7 @@
         --blanco: #121212;
         --negro: #e0e0e0;
         --gris-claro: #1e1e1e;
+        --gris-oscuro: ;
         --verde-suave: #1a3a0a;
     }
     .tag-habilidad {
@@ -194,6 +196,25 @@ a:focus, button:focus, input:focus, textarea:focus {
     padding: 20px; 
 }
 
+.opciones-ver {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+}
+.botonVer {
+    text-decoration: none;
+    background-color: var(--gris-claro);
+    padding: 5px 15px;
+    border-radius: 10px;
+    color: var(--negro);
+    text-align: center;
+}
+.demo, .github {
+    color: var(--verde-oscuro);
+}
 /* 6. FORMULARIO Y MENSAJE */
 .formulario { 
     max-width: 500px; 
