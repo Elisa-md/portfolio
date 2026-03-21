@@ -32,6 +32,6 @@ Entiendo el desarrollo Frontend como una extensión de mi labor social previa. M
 ## Enlace al proyecto
 
 Puedes visitar la versión desplegada del sitio en el siguiente enlace:
-https://elisa-md.github.io/portfolio/
+https://Elizabeth-MD.github.io/portfolio/
 ---
 Desarrollado con un enfoque firme en la accesibilidad web.
